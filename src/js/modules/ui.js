@@ -1,15 +1,11 @@
 class UI {
-    constructor() { }
-
-    getSingleElement(elementSelector) {
+    static getSingleElement(elementSelector) {
         return document.querySelector(elementSelector);
     }
 
-    getMultipleElements(elementSelector) {
+    static getMultipleElements(elementSelector) {
         return document.querySelectorAll(elementSelector);
     }
 }
 
-const ui = new UI();
-
-export { ui };
+export default UI;

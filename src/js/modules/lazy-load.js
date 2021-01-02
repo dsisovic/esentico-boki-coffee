@@ -1,43 +1,40 @@
-import { ui } from './ui.js';
+import ui from './ui';
 
 class LazyLoad {
-
-    constructor() { }
-
     lazyLoadImages() {
         const images = ui.getMultipleElements('[data-src]');
 
-        const imageOptions = {
+        const options = {
             root: null,
-            rootMargin: "0px 0px 0px 150px",
-            threshold: 0.5
+            rootMargin: '0px 0px 0px 150px',
+            threshold: 0.5,
         };
 
-        const intersectionObserver = new IntersectionObserver(this.onIntersectImage.bind(this), imageOptions);
+        const intersectionObserver = new IntersectionObserver(this.onIntersectImage.bind(this), options);
 
-        images.forEach(image => intersectionObserver.observe(image));
+        images.forEach((image) => intersectionObserver.observe(image));
     }
 
     onIntersectImage(entries, imgObserver) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
                 this.preloadImage(entry.target);
                 imgObserver.unobserve(entry.target);
             }
-        })
+        });
     }
 
     preloadImage(image) {
         const source = image.getAttribute('data-src');
         if (!source) { return; }
 
+        // eslint-disable-next-line no-param-reassign
         image.src = source;
+        // eslint-disable-next-line no-param-reassign
         image.style.visibility = 'visible';
     }
 }
 
 const lazyLoad = new LazyLoad();
 
-export { lazyLoad };
+export default lazyLoad;

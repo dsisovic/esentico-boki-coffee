@@ -1,26 +1,20 @@
-import { ui } from './ui.js';
-import { http } from './http.js';
-import { form } from './form.js';
-import { language } from './language.js';
-import { lazyLoad } from './lazy-load.js';
-import { googleMap } from './google-maps.js';
-import { translation } from './translation.js';
+import ui from './ui';
+import http from './http';
+import form from './form';
+import lazyLoad from './lazy-load';
+import googleMap from './google-maps';
+import introImage from '../../assets/img/intro-coffee.jpg';
+
 class BusinessLogic {
-
     mediaQueryCondition = '(max-width: 600px)';
-
-    constructor() { }
 
     intializeApp() {
         this.setCopyrightDate();
         this.setEventListeners();
 
         form.setFormEvents();
-        http.setCoffeeProducts();
+        http.setCoffeeProducts((coffeeResponse) => this.renderCoffeeProducts(coffeeResponse));
         googleMap.initGoogleMap();
-        translation.translateText();
-        language.setEventListeners();
-        language.setDefaultLanguage(this.getLocalstorageItem('esenticoBokiLanguage') || 'uk');
     }
 
     setCopyrightDate() {
@@ -36,13 +30,13 @@ class BusinessLogic {
         const closeMenuElement = ui.getSingleElement('#menu-close');
         const introductionWrapper = ui.getSingleElement('.introduction');
 
-        sidebarElements.forEach(sidebarElement => {
+        sidebarElements.forEach((sidebarElement) => {
             sidebarElement.addEventListener('click', (event) => this.onSidebarItemClick(event));
             sidebarElement.addEventListener('mouseenter', (event) => this.onSidebarItemEnterLeave(event, true));
             sidebarElement.addEventListener('mouseleave', (event) => this.onSidebarItemEnterLeave(event, false));
         });
 
-        submitForm.addEventListener('submit', (event) => form.onSubmitForm(event))
+        submitForm.addEventListener('submit', (event) => form.onSubmitForm(event));
         closeMenuElement.addEventListener('click', () => this.onSidebarMenuClose());
         menuTitleElement.addEventListener('click', (event) => this.onMenuTitleClick(event));
         introductionWrapper.addEventListener('click', (event) => this.onIntroductionWrapperClick(event));
@@ -84,7 +78,7 @@ class BusinessLogic {
             const overlayElement = ui.getSingleElement('#overlay');
             const sidebarTitles = ui.getMultipleElements('.sidenav__title');
 
-            sidebarTitles.forEach(sidebarTitle => sidebarTitle.classList.toggle('sidenav__title--active'));
+            sidebarTitles.forEach((sidebarTitle) => sidebarTitle.classList.toggle('sidenav__title--active'));
 
             navElement.style.display = 'block';
             menuTitle.style.display = 'none';
@@ -101,7 +95,7 @@ class BusinessLogic {
         const closeMenuElement = ui.getSingleElement('#menu-close');
         const sidebarTitles = ui.getMultipleElements('.sidenav__title');
 
-        sidebarTitles.forEach(sidebarTitle => sidebarTitle.classList.toggle('sidenav__title--active'));
+        sidebarTitles.forEach((sidebarTitle) => sidebarTitle.classList.toggle('sidenav__title--active'));
 
         this.checkToShowNavigationElement();
 
@@ -140,8 +134,10 @@ class BusinessLogic {
         const productsContainerElement = ui.getSingleElement('.products__container');
 
         const productCardsHTML = coffeeProducts
-            .map(coffeeProduct => {
-                const { picture, price, name, description, available, action, actionText } = coffeeProduct;
+            .map((coffeeProduct) => {
+                const {
+                    picture, price, name, description, available, action, actionText,
+                } = coffeeProduct;
                 const availabilityTextClass = available ? 'product__card--footer-available' : 'product__card--footer-unavailable';
                 const availabilityButtonClass = available ? 'product__card--price-available' : 'product__card--price-unavailable';
                 const actionElement = action ? `<span class="product__card--action">${actionText}</span>` : '';
@@ -158,7 +154,12 @@ class BusinessLogic {
                         </div>
                         <div class="product__card--footer">
                             <span class="${availabilityTextClass}">${available ? 'available' : 'not available'}</span>
-                            <div><span class="product__card--price ${availabilityButtonClass}">${price} <span class="product__card--unit">RSD/kg</span></span></div>
+                            <div>
+                                <span class="product__card--price ${availabilityButtonClass}">
+                                    ${price} 
+                                    <span class="product__card--unit">RSD/kg</span>
+                                </span>
+                            </div>
                             ${actionElement}
                         </div>
                     </div>
@@ -193,7 +194,7 @@ class BusinessLogic {
     }
 
     getBeansOffset(selectedSection) {
-        const parsedTab = Number.parseInt(selectedSection);
+        const parsedTab = Number.parseInt(selectedSection, 10);
 
         return `calc(${(parsedTab - 1) * 33.3}% - 7px)`;
     }
@@ -206,7 +207,7 @@ class BusinessLogic {
         const options = {
             root: null,
             rootMargin: `0px 0px -${bottomMargin}px 0px`,
-            threshold: 0.1
+            threshold: 0.1,
         };
 
         const observer = new IntersectionObserver(this.onIntersectingSection.bind(this), options);
@@ -216,11 +217,11 @@ class BusinessLogic {
         const contactSection = ui.getSingleElement('#contact');
         const productsSection = ui.getSingleElement('#products');
 
-        [homeSection, beansSection, productsSection, contactSection].forEach(section => observer.observe(section));
+        [homeSection, beansSection, productsSection, contactSection].forEach((section) => observer.observe(section));
     }
 
     onIntersectingSection(entries) {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const matchingElement = entry.target;
                 const sliderBeans = ui.getSingleElement('#slider__beans');
@@ -232,12 +233,12 @@ class BusinessLogic {
     }
 
     fetchMainImage() {
-        const introductionImage = ui.getSingleElement('#introduction__image');
+        const introductionImageElement = ui.getSingleElement('#introduction__image');
 
-        introductionImage.src = 'assets/img/intro-coffee.jpg';
+        introductionImageElement.src = introImage;
     }
 }
 
 const businessLogic = new BusinessLogic();
 
-export { businessLogic };
+export default businessLogic;

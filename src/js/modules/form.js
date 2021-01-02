@@ -1,11 +1,8 @@
-import { ui } from './ui.js';
-import { http } from './http.js';
+import ui from './ui';
+import http from './http';
 
 class Form {
-
     formValid = false;
-
-    constructor() { }
 
     setFormEvents() {
         const textArea = ui.getSingleElement('#contact-message');
@@ -28,27 +25,33 @@ class Form {
 
         const validContactName = this.validateFormElement(
             contactNameValue.trim(), contactNameMessage, 'Please enter contact name',
-            `Contact name shouldn't have more than 50 characters`, contactNameValue.length > 50
+            // eslint-disable-next-line quotes
+            `Contact name shouldn't have more than 50 characters`, contactNameValue.length > 50,
         );
 
         const validEmail = this.validateFormElement(
             contactEmailValue.trim(), contactEmailMessage, 'Please enter valid email address',
-            `Email should have valid format`, !emailPattern.test(contactEmailValue)
+            'Email should have valid format', !emailPattern.test(contactEmailValue),
         );
 
         const validMessage = this.validateFormElement(
             textAreaValue.trim(), contactTextareaMessage, 'Please enter some message',
-            `Message shouldn't contain more than 2000 characters`, textAreaValue.length > 2000
+            // eslint-disable-next-line quotes
+            `Message shouldn't contain more than 2000 characters`, textAreaValue.length > 2000,
         );
 
-        this.setFormValidity(validContactName && validEmail && validMessage)
+        this.setFormValidity(validContactName && validEmail && validMessage);
     }
 
-    validateFormElement(valueToCompare, messageContainer, errorMessageLength, specialErrorMessage, specialConditionMatch) {
+    validateFormElement(
+        valueToCompare, messageContainer, errorMessageLength, specialErrorMessage, specialConditionMatch,
+    ) {
         if (valueToCompare.length === 0) {
             this.showFormElementErrorMessage(messageContainer, errorMessageLength);
             return false;
-        } else if (specialConditionMatch) {
+        }
+
+        if (specialConditionMatch) {
             this.showFormElementErrorMessage(messageContainer, specialErrorMessage);
             return false;
         }
@@ -58,6 +61,7 @@ class Form {
     }
 
     showFormElementErrorMessage(element, errorText) {
+        // eslint-disable-next-line no-param-reassign
         element.textContent = errorText;
     }
 
@@ -67,7 +71,7 @@ class Form {
         if (this.formValid) {
             const [textAreaValue, contactNameValue, contactEmailValue] = this.getFormElementValues();
 
-            http.sendEmail(contactNameValue, contactEmailValue, textAreaValue);
+            http.sendEmail(contactNameValue, contactEmailValue, textAreaValue, () => this.clearForm());
         }
     }
 
@@ -98,4 +102,4 @@ class Form {
 
 const form = new Form();
 
-export { form };
+export default form;

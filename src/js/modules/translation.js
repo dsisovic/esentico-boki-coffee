@@ -1,32 +1,26 @@
-import { businessLogic } from './business-logic.js';
-import { ui } from './ui.js';
-import { http } from './http.js';
+import ui from './ui';
+import http from './http';
+
 class Translation {
-
-    constructor() { }
-
-    translateText() {
-        const language = businessLogic.getLocalstorageItem('esenticoBokiLanguage') || 'uk';
-
-        http.fetchLanguageConfiguration(language, this.replaceAllTranslations.bind(this));
-    }
-
     replaceText(element, fetchedConfiguration) {
-        const key = Object
+        const configurationKey = Object
             .keys(element.dataset)
-            .find(key => key !== 'i18n' && key.includes('i18n'));
+            .find((key) => key !== 'i18n' && key.includes('i18n'));
 
-        element.innerText = fetchedConfiguration[key] || key;
+        // eslint-disable-next-line no-param-reassign
+        element.innerText = fetchedConfiguration[configurationKey] || configurationKey;
     }
 
     replaceAllTranslations(languageConfiguration) {
         const elements = ui.getMultipleElements('[data-i18n]');
-
-        elements.forEach(element => this.replaceText(element, languageConfiguration));
+        elements.forEach((element) => this.replaceText(element, languageConfiguration));
     }
 
+    translateText(language) {
+        http.fetchLanguageConfiguration(language, this.replaceAllTranslations.bind(this));
+    }
 }
 
 const translation = new Translation();
 
-export { translation };
+export default translation;

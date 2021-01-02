@@ -1,10 +1,8 @@
-import { ui } from './ui.js';
-import { businessLogic } from './business-logic.js';
-import { translation } from './translation.js';
+import ui from './ui';
+import businessLogic from './business-logic';
+import translation from './translation';
+
 class Language {
-
-    constructor() { }
-
     setEventListeners() {
         const languageIcon = ui.getSingleElement('#language');
         const languageDialectElement = ui.getSingleElement('.header__dialect');
@@ -13,6 +11,7 @@ class Language {
         languageIcon.addEventListener('click', () => this.onOpenLanguageSelection());
         languageSelection.addEventListener('click', (event) => this.onLanguageSelection(event));
         languageDialectElement.addEventListener('click', (event) => this.onLanguageDialectSelect(event));
+        this.setDefaultLanguage(businessLogic.getLocalstorageItem('esenticoBokiLanguage') || 'uk');
     }
 
     onOpenLanguageSelection() {
@@ -29,7 +28,7 @@ class Language {
             const selectedLanguage = selectedDiv.dataset.language;
             const language = selectedLanguage.includes('serbian') ? 'serbian-latin' : selectedLanguage;
             this.setDefaultLanguage(language);
-            translation.translateText();
+            translation.translateText(language);
         }
     }
 
@@ -38,14 +37,15 @@ class Language {
             const dialectElement = ui.getSingleElement('.header__dialect');
             const languageSelections = ui.getMultipleElements('.language__selection');
 
-            languageSelections.forEach(languageSelection => languageSelection.classList.remove('active'));
-            const matchingLanguageDiv = [...languageSelections].find(languageSelection => language.includes(languageSelection.dataset.language));
+            languageSelections.forEach((languageSelection) => languageSelection.classList.remove('active'));
+            const matchingLanguageDiv = [...languageSelections]
+                .find((languageSelection) => language.includes(languageSelection.dataset.language));
             matchingLanguageDiv.classList.add('active');
 
             dialectElement.style.display = language === 'uk' ? 'none' : 'flex';
-
             businessLogic.setLocalstorageItem('esenticoBokiLanguage', language);
             this.checkToSetLanguageDialect(language, language !== 'uk', true);
+            translation.translateText(language);
         }
     }
 
@@ -60,11 +60,11 @@ class Language {
             dialectElement.classList.add('active');
             languageSelection.style.display = 'none';
             businessLogic.setLocalstorageItem('esenticoBokiLanguage', dialectLanguageSelected);
-            translation.translateText();
+            translation.translateText(dialectLanguageSelected);
         }
     }
 
-    checkToSetLanguageDialect(language, isDialectSupported, manualTrigger) {
+    checkToSetLanguageDialect(language, isDialectSupported) {
         const languageSelection = ui.getSingleElement('.header__language--expanded');
 
         if (isDialectSupported) {
@@ -79,10 +79,10 @@ class Language {
 
     removeSelectedDialects() {
         const dialectElements = ui.getMultipleElements('.language__dialect');
-        dialectElements.forEach(dialectElement => dialectElement.classList.remove('active'));
+        dialectElements.forEach((dialectElement) => dialectElement.classList.remove('active'));
     }
 }
 
 const language = new Language();
 
-export { language };
+export default language;
