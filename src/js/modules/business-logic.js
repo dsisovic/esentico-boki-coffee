@@ -234,7 +234,7 @@ class BusinessLogic {
     fetchMainImage() {
         const introductionImageElement = ui.getSingleElement('#introduction__image');
 
-        introductionImageElement.src = '/assets/img/intro-coffee.jpg';
+        introductionImageElement.src = 'assets/img/intro-coffee.jpg';
     }
 }
 
