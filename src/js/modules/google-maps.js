@@ -32,7 +32,7 @@ class GoogleMaps {
             });
         });
 
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleMapsAPIkey}`;
+        // script.src = `https://maps.googleapis.com/maps/api/js?key=${this.googleMapsAPIkey}`;
     }
 }
 
