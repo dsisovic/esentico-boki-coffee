@@ -3,7 +3,6 @@ import http from './http';
 import form from './form';
 import lazyLoad from './lazy-load';
 import googleMap from './google-maps';
-import introImage from '../../assets/img/intro-coffee.jpg';
 
 class BusinessLogic {
     mediaQueryCondition = '(max-width: 600px)';
@@ -235,7 +234,7 @@ class BusinessLogic {
     fetchMainImage() {
         const introductionImageElement = ui.getSingleElement('#introduction__image');
 
-        introductionImageElement.src = introImage;
+        introductionImageElement.src = '/assets/img/intro-coffee.jpg';
     }
 }
 
