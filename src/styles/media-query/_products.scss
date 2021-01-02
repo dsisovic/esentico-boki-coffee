@@ -1,0 +1,38 @@
+@media only screen and (max-width: 450px) {
+    .products {
+        &__container {
+            grid-template: 1fr / repeat(auto-fit, 100%);
+
+            .product__card {
+                grid-template: 1fr 120px 50px / 1fr;
+
+                &--img-inside {
+                    left: 52%;
+                    top: 11px;
+                    width: 110px;
+                    height: 110px;
+                }
+
+                &--img-sack {
+                    transform: scale(0.55) translate(-91%);
+                }
+
+                &--price {
+                    position: static;
+                }
+
+                &--footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    position: relative;
+
+                    span {
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
+}

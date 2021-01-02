@@ -1,0 +1,67 @@
+@import "./variables";
+
+/* Hide element */
+.hidden {
+    display: none;
+}
+
+/* Show element */
+.visible {
+    display: block;
+}
+
+/* Location icon */
+.fa-map-marker-alt {
+    color: $main;
+    font-size: 1rem;
+}
+
+/* General number style */
+.number {
+    font-size: 1.8rem;
+    font-family: "Poppins-Regular";
+}
+
+/* Autocomplete styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid $main;
+    -webkit-text-fill-color: $black;
+    -webkit-box-shadow: 0 0 0px 1000px $font-color inset;
+    box-shadow: 0 0 0px 1000px $font-color inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Overlay which is shown when menu sidemenu is opened */
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    display: none;
+}
+
+/* Menu title */
+#menu-title {
+    text-shadow: $text-shadow;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    color: $font-color;
+    cursor: pointer;
+
+    span {
+        margin-right: 10px;
+        display: inline-block;
+    }
+}

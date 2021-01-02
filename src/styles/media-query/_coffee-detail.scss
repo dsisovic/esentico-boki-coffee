@@ -1,0 +1,88 @@
+@media only screen and (max-width: 1080px) {
+    .coffee-detail {
+        height: auto;
+
+        &__main {
+            img {
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            .coffee-detail__item {
+                h5 {
+                    font-size: 1.5rem;
+                }
+
+                &--left,
+                &--top-left,
+                &--middle-left {
+                    padding-right: 130px;
+                    max-height: 180px;
+                    height: 100%;
+                }
+
+                &--right,
+                &--top-right,
+                &--middle-right {
+                    padding-left: 130px;
+                    max-height: 180px;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .coffee-detail {
+        &__main {
+            grid-template: repeat(6, 1fr) / 1fr;
+
+            img {
+                display: none;
+            }
+
+            .coffee-detail__item {
+                &--left,
+                &--top-left,
+                &--middle-left {
+                    padding-right: 130px;
+                    max-height: 180px;
+                    height: 100%;
+                    border: none;
+                    border-bottom: 3px dashed $font-color;
+                }
+
+                &--right,
+                &--top-right,
+                &--middle-right {
+                    padding-left: 130px;
+                    max-height: 180px;
+                    height: 100%;
+                    border: none;
+                    border-bottom: 3px dashed $font-color;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .coffee-detail {
+        padding-right: 0;
+
+        &__main {
+            .coffee-detail__item {
+                &--left,
+                &--top-left,
+                &--middle-left,
+                &--right,
+                &--top-right,
+                &--middle-right {
+                    padding: 2em 1em;
+                    max-height: none;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

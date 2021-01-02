@@ -1,0 +1,161 @@
+.products {
+    &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+        padding: 3em 0;
+
+        h2 {
+            text-align: center;
+            position: relative;
+            color: $main;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                max-width: 200px;
+                height: 3px;
+                background: $main;
+            }
+        }
+    }
+
+    &__container {
+        margin-top: 5em;
+        display: grid;
+        gap: 40px;
+        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
+        justify-items: center;
+
+        .product__card {
+            width: 100%;
+            max-width: 280px;
+            height: 345px;
+            border-radius: 25px;
+            display: grid;
+            grid-template: 1fr 120px 30px / 1fr;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1em;
+            transition: box-shadow 0.25s;
+            background-color: $font-color;
+            z-index: 1;
+
+            &:hover {
+                box-shadow: $product-card;
+            }
+
+            &--img-inside {
+                position: absolute;
+                left: 50%;
+                top: -36px;
+                z-index: 5;
+                transform: translate(-50%);
+            }
+
+            &--img-sack {
+                position: absolute;
+                left: 54.5%;
+                top: -43px;
+                transform: translate(-50%);
+                z-index: 10;
+            }
+
+            &--text {
+                text-transform: uppercase;
+                font-family: "Poppins-Regular";
+                line-height: 1.2;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -15px;
+                    left: -1em;
+                    right: 0;
+                    height: 1px;
+                    width: calc(100% + 2em);
+                    background: gainsboro;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                    margin-bottom: 5px;
+                }
+
+                span {
+                    font-size: 0.7rem;
+                    line-height: 0.5;
+                }
+            }
+
+            &--footer {
+                &-available {
+                    color: $main;
+                }
+
+                &-unavailable {
+                    color: $unavailable;
+                }
+            }
+
+            &--price {
+                position: absolute;
+                right: -15px;
+                bottom: 25px;
+                padding: 7px 14px;
+                text-align: center;
+                display: inline-block;
+                font-size: 1.2rem;
+                color: $font-color;
+                border-radius: 7px;
+                box-shadow: $box-shadow;
+
+                &-available {
+                    background: $main;
+                }
+
+                &-unavailable {
+                    background: $unavailable;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        right: 0;
+                        height: 2px;
+                        width: 100%;
+                        transform: translateY(-50%);
+                        background: $font-color;
+                    }
+                }
+            }
+
+            &--action {
+                border-radius: 50%;
+                font-size: 0.8rem;
+                transform: rotate(-25deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height: 80px;
+                top: -32px;
+                left: -51px;
+                position: absolute;
+                background: $main;
+                text-align: center;
+                color: $font-color;
+            }
+
+            &--unit {
+                font-family: "Poppins-Regular";
+                font-weight: 100;
+            }
+        }
+    }
+}
