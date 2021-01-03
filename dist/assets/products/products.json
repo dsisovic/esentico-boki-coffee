@@ -1,0 +1,84 @@
+[
+    {
+        "id": "01",
+        "name": "Arabica Green",
+        "picture": "assets/img/arabica__green.png",
+        "description": "Arabica Green coffee is the best possible coffee in the world",
+        "price": 1200,
+        "available": true
+    },
+    {
+        "id": "02",
+        "name": "Robusta",
+        "picture": "assets/img/robusta.png",
+        "description": "Robusta coffee is the best possible coffee in the world",
+        "price": 650,
+        "available": false
+    },
+    {
+        "id": "03",
+        "name": "Liberica",
+        "picture": "assets/img/liberica.png",
+        "description": "Liberica coffee is the best possible coffee in the world",
+        "price": 758,
+        "available": true
+    },
+    {
+        "id": "04",
+        "name": "Excelsa",
+        "picture": "assets/img/excelsa.png",
+        "description": "Excelsa is the best possible coffee in the world",
+        "price": 2250,
+        "available": true
+    },
+    {
+        "id": "05",
+        "name": "Blue Mountain",
+        "picture": "assets/img/blue__mountain.png",
+        "description": "Blue Mountain coffee is the best possible coffee in the world",
+        "price": 3200,
+        "available": true
+    },
+    {
+        "id": "06",
+        "name": "Typica",
+        "picture": "assets/img/typica.png",
+        "description": "Typica coffee is the best possible coffee in the world",
+        "price": 1700,
+        "available": true
+    },
+    {
+        "id": "07",
+        "name": "Kona",
+        "picture": "assets/img/kona.png",
+        "description": "Kona coffee is the best possible coffee in the world",
+        "price": 5450,
+        "available": true
+    },
+    {
+        "id": "08",
+        "name": "Bourbon",
+        "picture": "assets/img/bourbon.png",
+        "description": "Bourbon coffee is the best possible coffee in the world",
+        "price": 425,
+        "available": false
+    },
+    {
+        "id": "09",
+        "name": "Geisha",
+        "picture": "assets/img/geisha.png",
+        "description": "Geisha coffee is the best possible coffee in the world",
+        "price": 2800,
+        "available": true
+    },
+    {
+        "id": "10",
+        "name": "Sidamo",
+        "picture": "assets/img/sidamo.png",
+        "description": "Sidamo coffee is the best possible coffee in the world",
+        "price": 8700,
+        "available": true,
+        "action": true,
+        "actionText": "AKCIJA <br> 1 + 1 <br> GRATIS"
+    }
+]
