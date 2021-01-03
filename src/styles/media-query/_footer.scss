@@ -1,7 +1,7 @@
 @media only screen and (max-width: 1200px) {
     .footer {
         &__main {
-            row-gap: 20px;
+            row-gap: 30px;
             grid-template: 400px 450px / 60% 40%;
 
             &--map {
@@ -34,10 +34,11 @@
 
         &__main {
             padding: 0;
-            grid-template: repeat(3, 380px) / 100%;
+            grid-template: 1fr 380px 1fr / 100%;
 
             &--contact-info {
                 grid-row: 3 / 4;
+                text-align: center;
             }
 
             &--map {

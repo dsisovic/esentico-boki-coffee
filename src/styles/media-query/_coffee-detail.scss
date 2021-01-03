@@ -4,7 +4,7 @@
 
         &__main {
             img {
-                transform: translate(-50%, -50%) scale(0.5);
+                transform: translate(-50%, -50%) scale(0.9);
             }
 
             .coffee-detail__item {
@@ -42,6 +42,8 @@
             }
 
             .coffee-detail__item {
+                padding: 1.5em;
+
                 &--left,
                 &--top-left,
                 &--middle-left {

@@ -143,6 +143,7 @@ class BusinessLogic {
 
                 return `
                     <div class="product__card">
+                        ${actionElement}
                         <img data-src="assets/img/coffee_sack.png" alt="coffee-sack" class="product__card--img-sack">
                             <span>
                                 <img data-src="${picture}" alt="${name}" class="product__card--img-inside">
@@ -159,7 +160,6 @@ class BusinessLogic {
                                     <span class="product__card--unit">RSD/kg</span>
                                 </span>
                             </div>
-                            ${actionElement}
                         </div>
                     </div>
             `;
@@ -232,9 +232,9 @@ class BusinessLogic {
     }
 
     fetchMainImage() {
-        // const introductionImageElement = ui.getSingleElement('#introduction__image');
+        const introductionImageElement = ui.getSingleElement('#introduction__image');
 
-        // introductionImageElement.src = 'assets/img/intro-coffee.jpg';
+        introductionImageElement.src = 'assets/img/intro-coffee.jpg';
     }
 }
 
