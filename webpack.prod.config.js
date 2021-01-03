@@ -43,7 +43,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader',
                 ]
             },
             {
@@ -80,6 +80,11 @@ module.exports = {
                     to: path.resolve(__dirname, 'dist/assets')
                 }
             ]
-        })
-    ]
+        }),
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
 }
