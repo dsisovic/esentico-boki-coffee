@@ -5,9 +5,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: {
+        main: './src/js/index.js',
+        business: './src/js/modules/business-logic.js',
+        form: './src/js/modules/form.js',
+        googleMaps: './src/js/modules/google-maps.js',
+        http: './src/js/modules/http.js',
+        language: './src/js/modules/language.js',
+        lazyLoad: './src/js/modules/lazy-load.js',
+        translation: './src/js/modules/translation.js',
+        ui: './src/js/modules/ui.js',
+    },
     output: {
-        filename: 'index.[contenthash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
