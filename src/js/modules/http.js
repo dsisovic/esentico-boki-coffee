@@ -1,11 +1,4 @@
 class HTTP {
-    static async setCoffeeProducts(renderCallback) {
-        const coffeRequest = await fetch('assets/products/products.json');
-        const coffeeResponse = await coffeRequest.json();
-
-        renderCallback(coffeeResponse);
-    }
-
     static async sendEmail(contactName, email, message, okCallback) {
         try {
             // eslint-disable-next-line no-undef

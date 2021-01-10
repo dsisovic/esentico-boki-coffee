@@ -65,6 +65,9 @@
                     display: flex;
                     align-items: center;
                     font-size: 1rem;
+                    background: rgba(0, 0, 0, 0.5);
+                    padding: 0.5em;
+                    border-radius: 10px;
                     cursor: pointer;
 
                     svg {
@@ -157,7 +160,7 @@
 
         &__footer {
             display: grid;
-            grid-template: 70px / repeat(3, 200px) auto;
+            grid-template: 70px / repeat(3, 200px);
             font-size: 0.8rem;
             align-content: end;
 
@@ -166,25 +169,7 @@
                 border-left: 1px solid $font-color;
 
                 &:last-child {
-                    font-size: 1.3rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    padding-right: 1em;
-                    background: rgba(0, 0, 0, 0.2);
-
-                    a {
-                        color: $font-color;
-                        display: inline-block;
-                        position: relative;
-                        margin: 0 0.6em;
-
-                        &:hover {
-                            .tooltip {
-                                visibility: visible;
-                            }
-                        }
-                    }
+                    border-right: 1px solid $font-color;
                 }
             }
         }

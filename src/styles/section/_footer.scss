@@ -26,28 +26,11 @@
             align-self: center;
             text-align: justify;
 
-            .footer__main--number {
-                margin-top: 1em;
-                font-size: 1.4rem;
-            }
+            .footer__main--contact {
+                margin: 3em 0;
 
-            .footer__main--social {
-                margin-top: 1.5em;
-
-                a {
-                    color: $font-color;
-                    display: inline-block;
-                    position: relative;
-                    margin: 0 0.3em;
-                    font-size: 1.3rem;
-
-                    &:hover {
-                        .tooltip {
-                            visibility: visible;
-                            top: -40px;
-                            left: 0;
-                        }
-                    }
+                .footer__main--number {
+                    font-size: 1.4rem;
                 }
             }
         }

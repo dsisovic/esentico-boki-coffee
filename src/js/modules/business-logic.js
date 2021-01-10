@@ -1,5 +1,4 @@
 import ui from './ui';
-import http from './http';
 import form from './form';
 import lazyLoad from './lazy-load';
 import googleMap from './google-maps';
@@ -10,10 +9,15 @@ class BusinessLogic {
     intializeApp() {
         this.setCopyrightDate();
         this.setEventListeners();
+        this.setObserverAndLazyLoadImages();
 
         form.setFormEvents();
-        http.setCoffeeProducts((coffeeResponse) => this.renderCoffeeProducts(coffeeResponse));
         googleMap.initGoogleMap();
+    }
+
+    setObserverAndLazyLoadImages() {
+        this.initIntersectionObserver(window.matchMedia(this.mediaQueryCondition) ? 0 : 400);
+        lazyLoad.lazyLoadImages();
     }
 
     setCopyrightDate() {
@@ -129,50 +133,6 @@ class BusinessLogic {
         }
     }
 
-    renderCoffeeProducts(coffeeProducts) {
-        const productsContainerElement = ui.getSingleElement('.products__container');
-
-        const productCardsHTML = coffeeProducts
-            .map((coffeeProduct) => {
-                const {
-                    picture, price, name, description, available, action, actionText,
-                } = coffeeProduct;
-                const availabilityTextClass = available ? 'product__card--footer-available' : 'product__card--footer-unavailable';
-                const availabilityButtonClass = available ? 'product__card--price-available' : 'product__card--price-unavailable';
-                const actionElement = action ? `<span class="product__card--action">${actionText}</span>` : '';
-
-                return `
-                    <div class="product__card">
-                        ${actionElement}
-                        <img data-src="assets/img/coffee_sack.png" alt="coffee-sack" class="product__card--img-sack">
-                            <span>
-                                <img data-src="${picture}" alt="${name}" class="product__card--img-inside">
-                            </span>
-                        <div class="product__card--text">
-                            <p>${name}</p>
-                            <span>${description}</span>
-                        </div>
-                        <div class="product__card--footer">
-                            <span class="${availabilityTextClass}">${available ? 'available' : 'not available'}</span>
-                            <div>
-                                <span class="product__card--price ${availabilityButtonClass}">
-                                    ${price} 
-                                    <span class="product__card--unit">RSD/kg</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-            `;
-            })
-            .join('');
-
-        const fragment = document.createRange().createContextualFragment(productCardsHTML);
-        productsContainerElement.appendChild(fragment);
-
-        this.initIntersectionObserver(window.matchMedia(this.mediaQueryCondition) ? 0 : 400);
-        lazyLoad.lazyLoadImages();
-    }
-
     setLocalstorageItem(key, value) {
         localStorage.setItem(key, value);
     }
@@ -232,9 +192,9 @@ class BusinessLogic {
     }
 
     fetchMainImage() {
-        const introductionImageElement = ui.getSingleElement('#introduction__image');
+        // const introductionImageElement = ui.getSingleElement('#introduction__image');
 
-        introductionImageElement.src = 'assets/img/intro-coffee.jpg';
+        // introductionImageElement.src = 'assets/img/intro-coffee.jpg';
     }
 }
 

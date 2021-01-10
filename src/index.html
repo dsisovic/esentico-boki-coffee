@@ -26,10 +26,8 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <base href="" target="_blank">
-    <link rel="stylesheet preload prefetch" href="assets/fonts/Poppins-SemiBold.woff2" as="font"
-        crossorigin="anonymous">
-    <link rel="stylesheet preload prefetch" href="assets/fonts/Poppins-Regular.woff2" as="font" crossorigin="anonymous">
-
+    <link rel="preload" href="assets/fonts/Poppins-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" crossorigin="anonymous">
 
 </head>
 
@@ -72,7 +70,7 @@
                     </div>
                 </div>
                 <span class="header__language">
-                    <span id="language">Language<i class="fas fa-globe"></i></span>
+                    <span id="language">language<i class="fas fa-globe"></i></span>
                     <div class="header__language--expanded">
                         <div class="language__selection" data-language="uk">
                             <img src="assets/flags/united-kingdom.svg" alt="united-kingdom-flag" height="25" width="25">
@@ -118,20 +116,6 @@
                 <div>
                     <p class="number">5</p>
                     <p>Distributors</p>
-                </div>
-                <div>
-                    <a href="https://www.instagram.com/esenticoboki/" aria-label="instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span class="tooltip">instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com/EsenticoBoki-114495439961449/" aria-label="facebook">
-                        <i class="fab fa-facebook-square"></i>
-                        <span class="tooltip">facebook</span>
-                    </a>
-                    <a href="https://twitter.com/ApotekaZero/status/912207436228042752" aria-label="twitter">
-                        <i class="fab fa-twitter-square"></i>
-                        <span class="tooltip">twitter</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -221,27 +205,15 @@
         <img id="coffee__leafs" data-src="assets/img/caffee-leafs.png" alt="coffee__leafs">
         <div class="footer__main">
             <div class="footer__main--contact-info">
-                <div class="footer__main--contact">
+                <div>
                     <img data-src="assets/logo/logo__circle.png" alt="logo-circle" height="110" width="110">
                     <p>Ljubise Micica Zdila 12</p>
                     <p>31310 Cajetina</p>
                     <p>Serbia</p>
-                    <p class="footer__main--number">+381653378995</p>
-                    <p>esenticoboki@info.com</p>
-                </div>
-                <div class="footer__main--social">
-                    <a href="https://www.instagram.com/esenticoboki/" aria-label="instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span class="tooltip">instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com/EsenticoBoki-114495439961449/" aria-label="facebook">
-                        <i class="fab fa-facebook-square"></i>
-                        <span class="tooltip">facebook</span>
-                    </a>
-                    <a href="https://twitter.com/ApotekaZero/status/912207436228042752" aria-label="twitter">
-                        <i class="fab fa-twitter-square"></i>
-                        <span class="tooltip">twitter</span>
-                    </a>
+                    <div class="footer__main--contact">
+                        <p class="footer__main--number">+381653378995</p>
+                        <p>esenticoboki@info.com</p>
+                    </div>
                 </div>
                 <p>
                     &copy; <span id="copyright-year"></span>
