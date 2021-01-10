@@ -16,8 +16,8 @@ class BusinessLogic {
     }
 
     setObserverAndLazyLoadImages() {
-        this.initIntersectionObserver(window.matchMedia(this.mediaQueryCondition) ? 0 : 400);
         lazyLoad.lazyLoadImages();
+        this.initIntersectionObserver();
     }
 
     setCopyrightDate() {
@@ -162,11 +162,11 @@ class BusinessLogic {
         return localStorage.getItem(key);
     }
 
-    initIntersectionObserver(bottomMargin) {
+    initIntersectionObserver() {
         const options = {
             root: null,
-            rootMargin: `0px 0px -${bottomMargin}px 0px`,
-            threshold: 0.1,
+            rootMargin: '0px 0px 0px 0px',
+            threshold: 0.5,
         };
 
         const observer = new IntersectionObserver(this.onIntersectingSection.bind(this), options);
@@ -192,9 +192,9 @@ class BusinessLogic {
     }
 
     fetchMainImage() {
-        // const introductionImageElement = ui.getSingleElement('#introduction__image');
+        // const introductionImage = ui.getSingleElement('#introduction__image');
 
-        // introductionImageElement.src = 'assets/img/intro-coffee.jpg';
+        // introductionImage.src = 'assets/img/intro-coffee.jpg';
     }
 }
 

@@ -6,7 +6,7 @@ class LazyLoad {
 
         const options = {
             root: null,
-            rootMargin: '0px 0px 0px 150px',
+            rootMargin: '0px 0px 200px 0px',
             threshold: 0.5,
         };
 
