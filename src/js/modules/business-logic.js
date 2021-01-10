@@ -192,9 +192,15 @@ class BusinessLogic {
     }
 
     fetchMainImage() {
-        // const introductionImage = ui.getSingleElement('#introduction__image');
+        const image = new Image();
+        const introductionImage = ui.getSingleElement('#introduction__image');
 
-        // introductionImage.src = 'assets/img/intro-coffee.jpg';
+        // eslint-disable-next-line func-names
+        image.onload = function () {
+            introductionImage.setAttribute('src', this.src);
+        };
+
+        image.src = 'assets/img/intro-coffee.jpg';
     }
 }
 
