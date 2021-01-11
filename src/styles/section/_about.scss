@@ -5,6 +5,33 @@
     box-shadow: $box-shadow;
     margin: 0 auto;
 
+    #flag {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 40px;
+        display: flex;
+        box-shadow: $box-shadow;
+
+        > div {
+            width: calc(100% / 3);
+        }
+
+        &__red {
+            background: #ca5452;
+        }
+
+        &__blue {
+            background: #1f3e79;
+        }
+
+        &__white {
+            background: white;
+        }
+    }
+
     &__wrapper {
         position: relative;
         top: 0;
@@ -15,32 +42,6 @@
         max-width: 750px;
         display: grid;
         grid-template: 50px auto 230px / 1fr;
-
-        #flag {
-            position: absolute;
-            top: 0;
-            right: -15px;
-            height: 100%;
-            width: 40px;
-            display: flex;
-            box-shadow: $box-shadow;
-
-            > div {
-                width: calc(100% / 3);
-            }
-
-            &__red {
-                background: #ca5452;
-            }
-
-            &__blue {
-                background: #1f3e79;
-            }
-
-            &__white {
-                background: white;
-            }
-        }
 
         h2 {
             font-size: 1.9rem;
