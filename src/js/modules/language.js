@@ -1,6 +1,7 @@
 import ui from './ui';
 import businessLogic from './business-logic';
 import translation from './translation';
+
 class Language {
     setEventListeners() {
         const languageIcon = ui.getSingleElement('#language');

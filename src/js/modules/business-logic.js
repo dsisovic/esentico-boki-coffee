@@ -1,10 +1,12 @@
 import ui from './ui';
 import form from './form';
 import lazyLoad from './lazy-load';
-import googleMap from './google-maps';
+import googleMaps from './google-maps';
 
 class BusinessLogic {
     mediaQueryCondition = '(max-width: 600px)';
+
+    footerObserver;
 
     intializeApp() {
         this.setCopyrightDate();
@@ -13,7 +15,6 @@ class BusinessLogic {
 
         form.setFormEvents();
         form.handleFormElementChange();
-        googleMap.initGoogleMap();
     }
 
     setObserverAndLazyLoadImages() {
@@ -171,12 +172,15 @@ class BusinessLogic {
         };
 
         const observer = new IntersectionObserver(this.onIntersectingSection.bind(this), options);
+        this.footerObserver = new IntersectionObserver(this.checkIfFooterIsMatching.bind(this), options);
 
         const homeSection = ui.getSingleElement('#home');
         const beansSection = ui.getSingleElement('#beans');
-        const contactSection = ui.getSingleElement('#contact');
         const aboutSection = ui.getSingleElement('#about');
+        const footerSection = ui.getSingleElement('#footer');
+        const contactSection = ui.getSingleElement('#contact');
 
+        this.footerObserver.observe(footerSection);
         [homeSection, beansSection, aboutSection, contactSection].forEach((section) => observer.observe(section));
     }
 
@@ -188,6 +192,15 @@ class BusinessLogic {
                 const beanTopOffset = this.getBeansOffset(matchingElement.dataset.id);
 
                 sliderBeans.style.top = beanTopOffset;
+            }
+        });
+    }
+
+    checkIfFooterIsMatching(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                googleMaps.initGoogleMap();
+                this.footerObserver.disconnect();
             }
         });
     }
