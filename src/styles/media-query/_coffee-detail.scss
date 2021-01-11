@@ -35,6 +35,7 @@
 @media only screen and (max-width: 940px) {
     .coffee-detail {
         &__main {
+            padding: 1em 0;
             grid-template: repeat(6, 1fr) / 1fr;
 
             img {
@@ -62,6 +63,10 @@
                     height: 100%;
                     border: none;
                     border-bottom: 3px dashed $font-color;
+                }
+
+                &:last-child {
+                    border-bottom: none;
                 }
             }
         }

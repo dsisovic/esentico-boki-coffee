@@ -1,0 +1,106 @@
+.about {
+    position: relative;
+    min-height: 700px;
+    max-width: 1500px;
+    box-shadow: $box-shadow;
+    margin: 0 auto;
+
+    &__wrapper {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: inherit;
+        padding: 3em;
+        max-width: 750px;
+        display: grid;
+        grid-template: 50px auto 230px / 1fr;
+
+        #flag {
+            position: absolute;
+            top: 0;
+            right: -15px;
+            height: 100%;
+            width: 40px;
+            display: flex;
+            box-shadow: $box-shadow;
+
+            > div {
+                width: calc(100% / 3);
+            }
+
+            &__red {
+                background: #ca5452;
+            }
+
+            &__blue {
+                background: #1f3e79;
+            }
+
+            &__white {
+                background: white;
+            }
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            font-weight: bold;
+        }
+
+        p {
+            text-align: justify;
+            padding: 1em 0;
+
+            &.about__description {
+                border-bottom: 3px dashed $main;
+                font-family: "Poppins-Regular";
+            }
+        }
+    }
+
+    &__footer {
+        height: 100%;
+        gap: 2em;
+        margin-top: 1em;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .about__footer--content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 1em;
+
+            .about__footer--item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                img {
+                    border-radius: 50%;
+                    border: 5px solid $main;
+                    width: 150px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    &__serbia {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-height: inherit;
+
+        &--img {
+            height: 700px;
+            margin-right: 5em;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@media only screen and (max-width: 1320px) {
+    .about {
+        &__wrapper {
+            margin: 0 auto;
+
+            #flag {
+                top: initial;
+                left: 0;
+                right: 0;
+                bottom: -20px;
+                height: 40px;
+                width: 100%;
+                flex-direction: column;
+
+                > div {
+                    width: 100%;
+                    height: calc(100% / 3);
+                }
+            }
+        }
+
+        &__serbia {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .about {
+        &__wrapper {
+            padding: 2em;
+            grid-template: 50px auto 320px / 1fr;
+
+            #flag {
+                bottom: -40px;
+            }
+        }
+
+        &__footer {
+            .about__footer--content {
+                flex-direction: column;
+
+                .about__footer--item {
+                    img {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

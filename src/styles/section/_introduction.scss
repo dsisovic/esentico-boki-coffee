@@ -2,8 +2,7 @@
     position: relative;
     text-shadow: $text-shadow;
     box-shadow: $box-shadow;
-    height: 100vh;
-    min-height: 750px;
+    min-height: 100vh;
 
     #introduction__image {
         width: 100%;
@@ -23,7 +22,8 @@
         margin: 0 auto;
         color: $font-color;
         display: grid;
-        grid-template: 120px 1fr 60px / 1fr;
+        min-height: inherit;
+        grid-template: 120px auto 120px / 1fr;
 
         .header {
             display: grid;

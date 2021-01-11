@@ -28,7 +28,8 @@
         .intro {
             width: 90%;
             padding: 1em 0;
-            grid-template: 120px 1fr 200px / 1fr;
+            grid-template: 120px auto 200px / 1fr;
+            align-items: end;
 
             .header {
                 grid-template: 1fr auto / 1fr;
@@ -46,7 +47,6 @@
 
             &__content {
                 align-self: center;
-                margin: 2em 0;
 
                 &--header {
                     font-size: 2rem;

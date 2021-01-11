@@ -23,12 +23,18 @@
                     }
                 }
             }
+        }
+    }
+}
 
+@media only screen and (max-width: 450px) {
+    .contact {
+        &__form {
             &--submit {
                 > div {
                     width: 100%;
 
-                    button {
+                    #submit-message {
                         margin-right: 0;
                         width: 100%;
                     }

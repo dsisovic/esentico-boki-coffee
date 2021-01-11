@@ -12,6 +12,7 @@ class BusinessLogic {
         this.setObserverAndLazyLoadImages();
 
         form.setFormEvents();
+        form.handleFormElementChange();
         googleMap.initGoogleMap();
     }
 
@@ -174,9 +175,9 @@ class BusinessLogic {
         const homeSection = ui.getSingleElement('#home');
         const beansSection = ui.getSingleElement('#beans');
         const contactSection = ui.getSingleElement('#contact');
-        const productsSection = ui.getSingleElement('#products');
+        const aboutSection = ui.getSingleElement('#about');
 
-        [homeSection, beansSection, productsSection, contactSection].forEach((section) => observer.observe(section));
+        [homeSection, beansSection, aboutSection, contactSection].forEach((section) => observer.observe(section));
     }
 
     onIntersectingSection(entries) {

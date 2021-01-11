@@ -26,9 +26,6 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <base href="" target="_blank">
-    <!-- <link rel="preload" href="assets/fonts/Poppins-SemiBold.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" crossorigin="anonymous"> -->
-
 </head>
 
 <body>
@@ -46,8 +43,8 @@
         <span data-tab="2" data-section="beans">
             <span class="sidenav__title">Our Beans</span>
         </span>
-        <span data-tab="3" data-section="products">
-            <span class="sidenav__title">Products</span>
+        <span data-tab="3" data-section="about">
+            <span class="sidenav__title">About Us</span>
         </span>
         <span data-tab="4" data-section="contact">
             <span class="sidenav__title">Contact Us</span>
@@ -152,13 +149,46 @@
         </div>
     </div>
 
-    <div class="products" id="products" data-id="3">
-        <div class="products__wrapper">
-            <h2>Products</h2>
-            <div class="products__container"></div>
+    <div class="about" id="about" data-id="3">
+        <div class="about__wrapper">
+            <div id="flag">
+                <div id="flag__red"></div>
+                <div id="flag__blue"></div>
+                <div id="flag__white"></div>
+            </div>
+            <h2>About Us</h2>
+            <p class="about__description">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum atque ducimus quasi hic animi nisi
+                exercitationem quibusdam blanditiis, saepe ipsum soluta temporibus cumque fugit accusamus iusto dolore
+                explicabo commodi nam?
+                Veniam voluptates, dolorum ipsam, ut numquam corrupti ratione molestias earum sapiente, officia dolore
+                distinctio? Assumenda enim aut dicta eum vero blanditiis cupiditate reprehenderit temporibus, suscipit,
+                error tempora. Nostrum, nihil commodi!
+                Dolore, quo ad. Pariatur magnam voluptates optio. Exercitationem minima delectus dignissimos voluptate
+                sint nihil esse quaerat libero beatae ipsum id eveniet doloremque, molestias consequatur nisi magni amet
+                sit minus voluptatum!
+                Aspernatur fuga et commodi eum hic voluptate, vel tempora molestiae, quas eaque quaerat eligendi debitis
+                fugiat magni nulla corrupti. Quia nobis architecto eius nam minus sint, tempora recusandae incidunt
+                unde!
+            </p>
+            <div class="about__footer">
+                <h3>We offer</h3>
+                <div class="about__footer--content">
+                    <div class="about__footer--item">
+                        <img data-src="assets/img/arabica.jpg" alt="arabica">
+                        <p>Arabica</p>
+                    </div>
+                    <div class="about__footer--item">
+                        <img data-src="assets/img/arabica-green.jpg" alt="arabica-green">
+                        <p>Arabica Green</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about__serbia">
+            <img data-src="assets/img/serbia__coffee.png" alt="serbia in coffee" class="about__serbia--img">
         </div>
     </div>
-
 
     <div class="contact" id="contact" data-id="4">
         <img data-src="assets/img/leaves__pattern.jpg" alt="contact-pattern" id="contact-pattern">
