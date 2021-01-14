@@ -68,9 +68,8 @@
                     border-bottom: 3px dashed $font-color;
                 }
 
-                &:last-child,
-                &:nth-child(4) {
-                    border-bottom: none;
+                &--middle-right {
+                    border-top: 3px dashed $font-color;
                 }
             }
         }
