@@ -1,7 +1,5 @@
 @media only screen and (max-width: 1080px) {
     .coffee-detail {
-        height: auto;
-
         &__main {
             img {
                 transform: translate(-50%, -50%) scale(0.9);
@@ -36,10 +34,15 @@
     .coffee-detail {
         &__main {
             padding: 1em 0;
-            grid-template: repeat(6, 1fr) / 1fr;
+            grid-template: repeat(3, auto) 280px repeat(3, auto) / 1fr;
 
             img {
-                display: none;
+                position: relative;
+                transform: translate(-50%, -50%) scale(0.7);
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+                width: 100%;
+                max-width: 400px;
             }
 
             .coffee-detail__item {
@@ -65,7 +68,8 @@
                     border-bottom: 3px dashed $font-color;
                 }
 
-                &:last-child {
+                &:last-child,
+                &:nth-child(4) {
                     border-bottom: none;
                 }
             }
@@ -89,6 +93,21 @@
                     max-height: none;
                     text-align: left;
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .coffee-detail {
+        &__main {
+            grid-template: repeat(3, auto) 200px repeat(3, auto) / 1fr;
+
+            img {
+                max-width: 100%;
+                width: 290px;
+                height: 290px;
+                padding: 1em;
             }
         }
     }
