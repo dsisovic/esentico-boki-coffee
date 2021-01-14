@@ -23,10 +23,10 @@
         min-height: inherit;
         padding: 3em;
         max-width: 750px;
+        box-shadow: $box-shadow;
         display: grid;
         grid-template: 50px auto 230px / 1fr;
         background: rgba(0, 0, 0, 0.5);
-        box-shadow: $box-shadow;
 
         h2 {
             font-size: 1.9rem;
