@@ -28,7 +28,7 @@ class HTTP {
     }
 
     static async fetchLanguageConfiguration(language, languageCallback) {
-        const languageJsonConfiguration = await fetch(`assets/translations/${language}.json`);
+        const languageJsonConfiguration = await fetch(`assets/translations/${language}.json?cache=bojantest123`);
         const languageResponse = await languageJsonConfiguration.json();
 
         languageCallback(languageResponse);

@@ -19,7 +19,7 @@ class BusinessLogic {
 
     setObserverAndLazyLoadImages() {
         lazyLoad.lazyLoadImages();
-        this.initIntersectionObserver();
+        this.initIntersectionObserver(window.matchMedia(this.mediaQueryCondition).matches);
     }
 
     setCopyrightDate() {
@@ -164,11 +164,11 @@ class BusinessLogic {
         return localStorage.getItem(key);
     }
 
-    initIntersectionObserver() {
+    initIntersectionObserver(matchesMobileDevices) {
         const options = {
             root: null,
             rootMargin: '0px 0px 0px 0px',
-            threshold: 0.5,
+            threshold: matchesMobileDevices ? 0.1 : 0.5,
         };
 
         const observer = new IntersectionObserver(this.onIntersectingSection.bind(this), options);
