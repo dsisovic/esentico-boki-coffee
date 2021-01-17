@@ -88,7 +88,7 @@ class Form {
         ui.getSingleElement('#contact-email').value = '';
         ui.getSingleElement('#contact-message').value = '';
 
-        this.setFormValidity(false);
+        this.handleFormElementChange();
     }
 
     setFormValidity(formState) {

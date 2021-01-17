@@ -8,7 +8,7 @@ class HTTP {
                 Password: 'mcreotjruuzliyvi',
                 To: 'siskoftn@gmail.com',
                 From: email,
-                Subject: contactName,
+                Subject: `Upit sa sajta od: ${contactName}`,
                 Body: message,
             });
 
